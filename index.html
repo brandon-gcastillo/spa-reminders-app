@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="./src/styles/style.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Fontawesome Icons -->
+    <script src="https://kit.fontawesome.com/f13a7a2b04.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <main class="container-sm m-5 p-5" id="reminders_container">
+        <section class="grid p-3 w-50" id="reminders_section">
+            <h1>Reminders</h1>
+            <p>Reminders will be displayed below.</p>
+            <div class="card my-3">
+                <div class="card-body">
+                    <!-- Reminder Details Previw Seciton -->
+                    <section>
+                        <div class="mb-2">
+                            <h5 class="card-title">BBConnect Assignmet #1</h5>
+                            <span class="badge rounded-pill text-bg-success">Status: Active</span>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Date: 14/05/2023</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's
+                            content.</p>
+                        <hr class="divider">
+                        <div id="edit_form_actions_btns">
+                            <button type="button" href="#" class="btn btn-secondary my-1" name="edit_reminder_btn"
+                                id="edit_reminder_btn"><i class="fa-regular fa-pen-to-square"></i> Edit
+                                Reminder</button>
+                            <button type="button" name="delete_reminder_btn" id="delete_reminder_btn" href="#"
+                                class="btn btn-danger my-1"><i class="fa-regular fa-trash-can"></i> Delete
+                                Reminder</button>
+                        </div>
+                    </section>
+                    <!-- Edit form section -->
+                    <section id="edit_form_section" class="d-none">
+                        <form action="#" method="POST" name="edit_reminder_form" novalidate>
+                            <h4 class="form-title">Edit Reminder Information</h4>
+                            <!-- Reminder Title Field -->
+                            <div class="form-group mb-2">
+                                <label for="reminder_title" class="form-label">
+                                    <strong>Reminder Title: <span class="text-danger">* </span></strong>
+                                </label>
+                                <input type="text" name="reminder_title" id="reminder_title" class="form-control"
+                                    required>
+                            </div>
+                            <!-- Reminder Description Field -->
+                            <div class="form-group mb-2">
+                                <label for="reminder_description" class="form-label">
+                                    <strong>
+                                        Reminder Description
+                                        <span class="text-danger">*</span>
+                                    </strong>
+                                </label>
+                                <textarea type="text" name="reminder_description" id="reminder_description"
+                                    class="form-control" required rows="5" maxlength="255"></textarea>
+                            </div>
+                            <!-- Reminder Due Date Field -->
+                            <div class="form-group mb-2">
+                                <label for="reminder_date" class="form-label">
+                                    <strong>
+                                        Date:
+                                        <span class="text-danger">*</span>
+                                    </strong>
+                                </label>
+                                <input type="date" class="form-control w-50" required name="reminder_date"
+                                    id="reminder_date">
+                            </div>
+                            <!-- Form Action Buttons -->
+                            <div class="my-3">
+                                <div class="d-flex flex-wrap">
+                                    <button type="reset" name="cancel_reminder_changes" id="cancel_reminder_changes"
+                                        class="btn btn-secondary">
+                                        <i class="fa-solid fa-ban"></i> Cancel Changes
+                                    </button>
+                                    &nbsp;
+                                    <button type="submit" name="save_reminder" id="save_reminder"
+                                        class="btn btn-danger">
+                                        <i class="fa-regular fa-floppy-disk"></i> Save Changes
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="addReminder_dialog" name="Add a new Reminder">
+                Create Reminder
+            </button>
+            <div class="row mt-3">
+                <div class="col-sm-12" id="root">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="add-reminders-dialog">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form action="#" name="addReminders_form">
+                        <div class="mb-2">
+                            <h5>Add Reminders</h5>
+                            <p>Complete the form below to add a new reminder.</p>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="reminder_title-dialog" class="form-label">
+                                <strong>Title: <span class="text-danger">*</span></strong>
+                            </label>
+                            <input type="text" name="reminder_title-dialog" id="reminder_title-dialog" class="form-control" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="reminder_description-dialog" class="form-label">
+                                <strong>Reminder Description: <span class="text-danger">*</span></strong>
+                            </label>
+                            <textarea class="form-control" name="reminder_description-dialog" id="reminder_description-dialog" maxlength="255" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="reminder_dueDate-dialog" class="form-label">
+                                <strong>Due date: <span class="text-danger">*</span></strong>
+                            </label>
+                            <input type="date" name="reminder_dueDate-dialog" id="reminder_dueDate-dialog" class="form-control" required>
+                        </div>
+                        <div class="my-3">
+                            <button type="button" id="reminderCloseBtnDialog" formmethod="dialog"
+                                class="mr-2 btn btn-secondary">Close</button>
+                            <button type="submit" id="addReminderBtn" class="btn btn-primary">Add Reminder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="./src/index.js" type="module"></script>
+
+    <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+    <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+main#reminders_container {
+    background-color: rgba(48, 51, 107, 1.0);
+}
+
+section#reminders_section {
+    color: #202121;
+    background-color: #FFF;
+    border-radius: 4px;
+}
+
+input.form-control,
+textarea.form-control,
+select.form-select,
+input.form-check-input {
+    border: 1px solid #9A9A9A;
+}
+
+h4.form-title {
+    font-size: 18px;
+}
+
+section.reminder_form_section {
+    display: none;
+}
