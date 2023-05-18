@@ -8,6 +8,7 @@ import { ReminderActionButtons } from './ReminderActionButtons.js';
 import { ReminderCard } from './ReminderCard.js';
 import { ReminderDetails } from './ReminderDetails.js';
 import { TextArea } from './TextArea.js';
+import { FormReminderActionButtons } from './FormReminderActionButtons.js'
 
 export {
     Divider,
@@ -19,5 +20,6 @@ export {
     ReminderActionButtons,
     ReminderCard,
     ReminderDetails,
-    TextArea
+    TextArea,
+    FormReminderActionButtons
 };

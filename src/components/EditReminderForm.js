@@ -1,4 +1,4 @@
-import { FormControlWrapper, Input, Label, TextArea } from "./index.js";
+import { FormControlWrapper, Input, Label, TextArea, FormReminderActionButtons } from "./index.js";
 
 export function EditReminderForm(props) {
     let { id, title, description, dueDate } = props;
@@ -11,6 +11,7 @@ export function EditReminderForm(props) {
     const $section = $d.createElement("section");
     const $editForm = $d.createElement("form");
     const $formTitle = $d.createElement("h4");
+    const $formActionButtons = FormReminderActionButtons(id, title);
 
     // Generates the HTML Code for the Reminder Title Field
     const $titleLabel = Label({
@@ -74,6 +75,7 @@ export function EditReminderForm(props) {
     $editForm.appendChild($descWrapper);
     $editForm.appendChild($dueDateWrapper);
     $section.appendChild($editForm);
+    $section.appendChild($formActionButtons);
 
     return $section;
 }

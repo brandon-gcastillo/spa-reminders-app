@@ -27,6 +27,7 @@ export function ReminderActionButtons(id, title) {
     $deleteBtn.setAttribute("name", "edit_reminder_btn");
     $deleteBtn.setAttribute("id", `delete_reminder_btn-${id}`);
     $deleteBtn.setAttribute("data-key", id);
+    $actionButtonsDiv.className = "action_buttons";
 
     // Assigning texts and icons to elements
     $editBtn.appendChild($editIcon);

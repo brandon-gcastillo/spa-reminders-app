@@ -123,4 +123,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
     editReminderBtn.addEventListener("click", showEditForm);
     saveReminderBtn.addEventListener("click", saveEditForm);
+
+    // Show form from reminders
+    const editButtons = document.querySelectorAll("button[name='edit_reminder_btn']");
+
+    editButtons.forEach(button=> {
+        button.addEventListener("click", (e) => {
+            const eventId = e.target.dataset.key;
+            const formSection = document.querySelector(`.card[data-card-key="${eventId}"] section.reminder_form_section`);
+            const actionButtonsDiv = document.querySelector(`.card[data-card-key='${eventId}'] div.action_buttons`);
+            actionButtonsDiv.style.display = "none";
+            formSection.style.display = "block";
+            document.querySelector(`input[name='reminder_title-event-${eventId}']`).focus();
+        })
+    })
 });
